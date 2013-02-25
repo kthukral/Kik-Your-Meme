@@ -1,0 +1,12 @@
+
+p { /* Canvas Area*/
+	text-align: center;
+	margin-top: 15px;
+}
+#myCanvas {
+	border-radius: 15px;
+	max-width: 95%;
+
+}
+
+
