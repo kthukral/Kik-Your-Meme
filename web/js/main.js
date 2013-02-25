@@ -1,9 +1,9 @@
-   
+  /* 
    if (cards.kik.returnToConversation) {
     // Card was launched by a conversation
     App.load('viewer');
 }
-
+*/
 
    App.populator('favorites', function (page) {
         // put stuff here
