@@ -61,6 +61,7 @@
 
 
        kik.on('click',function(){
+        if(!(canvas.width  == 0 && canvas.height == 0)){
         var url = canvas.toDataURL();
         FPAPI.save(url, function (link) {
       // link is a normal url can hosts the image
@@ -72,6 +73,7 @@
           linkData : link
         });
     });
+      }
   });
 
      	//Meme(image, canvas, 'Buy pizza', 'Pay in snakes');
@@ -150,4 +152,4 @@
     }else {
       App.load('newMeme');
     }
-    //App.load('viewer');
+  
