@@ -10,19 +10,10 @@
   </head>
 
   <body>
-    <div class="app-page" data-page="favorites">
-      <div class="app-topbar">
-        <div class="app-title">Favorite Memes</div>
-        <div class ="app-button right" data-target ="newMeme">Add</div>
-      </div>
-      <div class="app-content">
-      </div>
-    </div>
-
+    
 
     <div class = "app-page" data-page = "newMeme">
       <div class = "app-topbar">
-        <div class = "app-button left" data-back = "true">Back</div>
         <div class = "app-title">Meme Creator</div>
         <div class = "app-button right" id = "save">Save</div>
       </div>
@@ -30,14 +21,14 @@
         <!-- <div class = "app-section"> -->
         <p>
           <!-- <img id = "sampleMeme" src = "jeetMeme.jpg" /> -->
-          <canvas id = "myCanvas" width = "150" height = "150"></canvas>
+          <canvas id = "myCanvas" width = "0" height = "0"></canvas>
         </p>
         <div class = "app-section">
           <input class = "app-input" placeholder = "Top Text" id ="top-line">
           <input class = "app-input" placeholder = "Bottom Text" id="bottom-line">
         </div>
         <div class = "app-section">
-          
+          <div class = "app-button" id = "pic">Select Picture</div>
           <div class = "app-button" id = "create">Add Text</div>
           <div class= "app-button" id = "kikButton">Kik</div>
         </div>
@@ -48,17 +39,20 @@
   <div class = "app-page" data-page = "viewer">
     <div class = "app-topbar">
     <div class = "app-title">Viewer</div>
+    <div class = "app-button left" id = "home">Home</div>
     </div>
     <div class = "app-content">
     <div class = "app-section">
     <p>
-    <canvas id = "viewerCanvas" width = "100" height = "100">
-    </p>   
+      <canvas id  = "viewCanvas" width = "200" height = "200"></canvas>
+      </p> 
+    <!-- <img> -->
   </div>
   <div class = "app-section">
   <div class = "app-button" id = "forward">Kik</div>
   <div class = "app-button" id = "conversation">Conversation</div>
   <div class = "app-button" id = "savepic">Save</div>
+</div>
 </div>
 </div>
 
@@ -68,6 +62,9 @@
     <script src = "js/meme.js"></script>
     <script src="http://cdn.kik.com/cards/0/cards.js"></script>
     <script src = "http://cdn.kik.com/clickable/1.1.0/clickable.js"></script>
+    <!-- Meme api expects jquery explicitly, but zepto should do. -->
+    <script>jQuery=$;</script>
+    <script src="http://cards-meme.appspot.com/api.js"></script>
     <script src="zerver/MyAPI.js"></script>
     <script src = "js/main.js?"></script>
 

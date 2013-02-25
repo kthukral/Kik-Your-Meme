@@ -126,7 +126,7 @@ var Meme = function(image, canvas, maxsize, top, bottom) {
 				if ( fontfamily === 'Impact' ) {
 					y = canvas.height - 20;
 				} else {
-					y = canvas.height - 35;
+					y = canvas.height - 30;
 				}
 
 			}
@@ -242,7 +242,7 @@ var Meme = function(image, canvas, maxsize, top, bottom) {
 		context.strokeStyle = 'white';
 		context.lineWidth = 1;
 
-		var fontSize = (canvas.height / 6);
+		var fontSize = (canvas.height / 5.5);
 		context.font = fontSize + 'px ' + fontfamily;
 		context.textAlign = 'center';
 
