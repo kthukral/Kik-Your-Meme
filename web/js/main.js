@@ -40,6 +40,10 @@
 
        save.on('click',function(){
 
+        if(canvas.width == 0 && canvas.height == 0){
+
+        }else {
+
         cards.photo.saveToGallery(canvas.toDataURL(), function (status) {
           if (status) {
           // save succeeded
@@ -50,6 +54,7 @@
           alert('Save Failed. Please Try Again');
         }
       });
+      }
 
       });
 
@@ -84,6 +89,8 @@
 
     var home = $(page).find('#home');
     var vcanvas = $(page).find('#viewCanvas')[0];
+    var savepic = $(page).find('#savepic');
+    var forward = $(page).find('#forward');
     
     //$(page).find('img').attr('src', data.url);
 
@@ -94,6 +101,36 @@
       App.load('newMeme');
 
     });
+
+    savepic.on('click',function(){
+
+      cards.photo.saveToGallery(data.url, function (status) {
+          if (status) {
+          // save succeeded
+          alert('Image Saved');
+        }
+        else {
+          // save failed
+          alert('Save Failed. Please Try Again');
+        }
+      });
+
+    });
+
+    forward.on('click',function(){
+
+      cards.kik.send({
+          title    : 'Message title'        ,
+          text     : 'Message body'         ,
+          pic      : data.url ,       // optional
+          big      : true                   ,       // optional
+          linkData : data.url
+        });
+    });
+
+  
+
+
 
   }); 
 
@@ -106,10 +143,11 @@
         }*/
 
 
-        if (cards.browser && cards.browser.linkData) {
+       if (cards.browser && cards.browser.linkData) {
       // Card was launched by a conversation
       App.load('viewer', { url : cards.browser.linkData });
       //cards.kik.returnToConversation(); // return to conversation
     }else {
       App.load('newMeme');
     }
+    //App.load('viewer');
