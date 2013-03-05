@@ -212,37 +212,31 @@ var Meme = function(image, canvas, maxsize, top, bottom) {
 
 	//Do everything else after image loads
 	image.onload = function() {
-		
-		maxsize = maxsize || this.width;
-
-		var temp = this.width/this.height;
-		var tempW = maxsize;
-		var tempH = maxsize/temp;
+		var ratio = this.width/this.height;
+		var w = maxsize;
+		var h = maxsize/ratio;
 		var offset = 0;
 
 		if ( this.height > this.width ) {
-			temp = this.height/this.width;
-			tempW = maxsize/temp;
-			tempH = maxsize;
-			offset = (tempH-tempW)/2;
-			maxsize = maxsize || this.height;
-
-			$("canvas").css("margin-left", offset + "px");
-			$("canvas").css("margin-top", "10px");
+			w = maxsize * ratio;
+			h = maxsize;
+			offset = (maxsize - w)/2;
 		}
+		//$("canvas").css("margin-left", offset + "px");
+		//$("canvas").css("margin-top", "10px");
 
 		// Set dimensions
-		setCanvasDimensions(tempW, tempH);
+		setCanvasDimensions(w, h);
 
 		// Draw the image
-		context.drawImage(image, 0, 0, tempW, tempH);
+		context.drawImage(image, 0, 0, w, h);
 
 		// Set up text variables
 		context.fillStyle = 'white';
-		context.strokeStyle = 'white';
+		context.strokeStyle = 'black';
 		context.lineWidth = 1;
 
-		var fontSize = (canvas.height / 5.5);
+		var fontSize = (canvas.height / 7);
 		context.font = fontSize + 'px ' + fontfamily;
 		context.textAlign = 'center';
 

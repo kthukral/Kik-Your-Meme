@@ -26,7 +26,7 @@
       if(!photos){
 
       }else{
-        pickedMeme = Meme(photos[0],canvas,300);
+        pickedMeme = Meme(photos[0],canvas, 300);
       }
     });
       });
