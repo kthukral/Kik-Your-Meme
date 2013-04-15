@@ -1,9 +1,9 @@
 
-
-
-
   App.populator('newMeme',function(page){
-    var canvas = $(page).find('#myCanvas')[0];
+      
+      //Variable intialization
+      var canvas = $(page).find('#myCanvas')[0];
+      //Sample image commented out
      	//var image = $(page).find('#sampleMeme')[0];
      	var topline = $(page).find('#top-line');
      	var bottomline = $(page).find('#bottom-line');
@@ -14,6 +14,10 @@
 
       //$(page).find('#myCanvas').clickable();
       //$(page).find('#myCanvas').on('click',function(){
+      
+      //Making the canvas clickable to intiate the photo
+      //picker for the Kik application
+
       $(page).find('#pic').on('click',function(){  
         cards.photo.get({
       quality    : 0.7  , // number between 0-1
@@ -26,17 +30,23 @@
       if(!photos){
 
       }else{
+        //Creating the Meme
         pickedMeme = Meme(photos[0],canvas, 300);
       }
     });
       });
-  		//$(topline, bottomline).keyup(function() {
+
+       //Clicking the create button updates the bottom and 
+       //top texts with the texts in the text fields
+
        create.on('click',function(){
 
         pickedMeme.updateText(topline.val(),bottomline.val());
 
         
       });
+
+       //Save button to save the meme to the native gallery
 
        save.on('click',function(){
 
@@ -58,7 +68,7 @@
 
       });
 
-
+       //Kiking the meme to your friends
 
        kik.on('click',function(){
         if(!(canvas.width  == 0 && canvas.height == 0)){
@@ -76,16 +86,11 @@
       }
   });
 
-     	//Meme(image, canvas, 'Buy pizza', 'Pay in snakes');
-       /*$(page).on('appLayout',function(){
-       	setTimeout(function(){
-       		console.log(image.width,image.height);
-       		Meme(image, canvas, 'Buy pizza', 'Pay in snakes');
-       	},1000);
-  });*/
-
   });
 
+  
+  //Populating the viewer page which is initiated
+  //When opening from a Kik
 
   App.populator('viewer',function(page, data){
 
@@ -93,8 +98,6 @@
     var vcanvas = $(page).find('#viewCanvas')[0];
     var savepic = $(page).find('#savepic');
     var forward = $(page).find('#forward');
-    
-    //$(page).find('img').attr('src', data.url);
 
     Meme(data.url,vcanvas,300); 
     
@@ -130,20 +133,7 @@
         });
     });
 
-  
-
-
-
   }); 
-
-
-    /*    try {
-          App.restore();
-        }
-        catch (err) {
-          App.load('newMeme');
-        }*/
-
 
        if (cards.browser && cards.browser.linkData) {
       // Card was launched by a conversation
