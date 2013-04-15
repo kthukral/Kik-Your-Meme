@@ -1,4 +1,4 @@
-Kik-Your-Meme (kik-meme.herokuapp.com)
+Kik-Your-Meme (kik-memes.herokuapp.com)
 ===========================================
 
 This is a web application programed in Javascript, HTML and CSS for the Kik Messenger application on iOS and Android. This web application only works with Kik Messenger as it requires you to select a picture from the native gallery. To use the app, send a Kik message with the following text Card://kik-memes.herokuapp.com and then tap it. 
