@@ -1,0 +1,9 @@
+
+p { /* Canvas Area*/
+	text-align: center;
+	margin-top: 15px;
+}
+#myCanvas, #viewCanvas {
+	border-radius: 15px;
+	width: 95%;
+}
